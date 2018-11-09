@@ -18,7 +18,9 @@ docStringArray.forEach(function(docString) {
 			var docObjectName = docString.slice(0, docString.indexOf("."));
 			var docProperty = docString.slice(docString.indexOf(".")+1, docString.indexOf("=")-1)
 			var docPropertyValue = docString.slice(docString.indexOf("=")+2, -1)
-			docObjects[docObjectName]['suffix'] = "{ "+docProperty+" = "+docPropertyValue+" }"
+			if(docObjects[docObjectName] == undefined) { console.log(docString+" | Skipped") } else {
+				docObjects[docObjectName]['suffix'] = "{ "+docProperty+" = "+docPropertyValue+" }"
+			}
 		}
 	}
 	if(docString.indexOf(".Append") > -1) {
