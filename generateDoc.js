@@ -8,7 +8,7 @@ var docStringArray = fs.readFileSync('docString.txt').toString().split("\n");
 
 docStringArray.forEach(function(docString) {
 	docString = docString.trim();
-	if(docString.indexOf("=") > -1) {
+	if(docString.indexOf("=") > -1 && docString.indexOf("OpenXmlUnknownElement") == -1) {
 		if(docString.indexOf("new") > -1) {
 			var theName = docString.slice(docString.indexOf(" ")+1, docString.indexOf("=")-1);
 			if(docObjects[theName] == undefined) { docObjects[theName] = { "appends": []} }
