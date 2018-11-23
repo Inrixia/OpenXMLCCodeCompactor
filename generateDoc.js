@@ -28,6 +28,9 @@ docStringArray.forEach(function(docString) {
         parentObject = docString.slice(0, docString.indexOf(".Append"));
 		docObjects[parentObject]["appends"].push(docObjects[childObject]);
   	}
+  	if(docString.indexOf(".AddNamespaceDeclaration") > -1) {
+  		console.log("AddNamespaceDeclaration is not supported! Skipping -> "+docString)
+  	}
 })
 
 function appendObject(parentObject, childObject, depth, lastElement) {
